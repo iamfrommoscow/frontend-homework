@@ -120,4 +120,79 @@ QUnit.module('Тестируем функцию sorting', function () {
 
 		assert.deepEqual(actual, expected);
 	});
+
+	QUnit.test('Проверка массива объектов на undefined', function (assert) {
+		const initial = undefined;
+		const actual = sorting(initial,  [ 'prop1' ]);
+
+		const expected = undefined;
+
+		assert.deepEqual(actual, expected);
+	});
+
+	QUnit.test('Проверка массива объектов на null', function (assert) {
+		const initial = null;
+		const actual = sorting(initial,  [ 'prop1' ]);
+
+		const expected = null;
+
+		assert.deepEqual(actual, expected);
+	});
+
+	QUnit.test('Проверка массива ключей на undefined', function (assert) {
+		const initial = [
+			{prop1: 3, id: '1'},
+			{prop1: 3, id: '2'},
+			{prop1: 1, id: '1'},
+			{prop1: 1, id: '2'},
+			{prop1: 4, id: '1'},
+			{prop1: 4, id: '2'},
+			{prop1: 2, id: '1'},
+			{prop1: 2, id: '2'}
+		];
+		const actual = sorting(initial,  undefined);
+
+		const expected = undefined;
+
+		assert.deepEqual(actual, expected);
+	});
+
+	QUnit.test('Проверка массива ключей на null', function (assert) {
+		const initial = [
+			{prop1: 3, id: '1'},
+			{prop1: 3, id: '2'},
+			{prop1: 1, id: '1'},
+			{prop1: 1, id: '2'},
+			{prop1: 4, id: '1'},
+			{prop1: 4, id: '2'},
+			{prop1: 2, id: '1'},
+			{prop1: 2, id: '2'}
+		];
+		const actual = sorting(initial,  null);
+
+		const expected = null;
+
+		assert.deepEqual(actual, expected);
+	});
+
+	QUnit.test('sorting сортирует массив по несуществующему ключу', function (assert) {
+		const initial = [
+			{prop1: '30'},
+			{prop1: '1000'},
+			{prop1: '4'},
+			{prop1: '200'}
+		];
+		const actual = sorting(initial, [ 'prop4' ]);
+
+		const expected = [
+			{prop1: '30'},
+			{prop1: '1000'},
+			{prop1: '4'},
+			{prop1: '200'}
+		];
+
+		assert.deepEqual(actual, expected);
+	});
+
+	
 });
