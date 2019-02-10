@@ -2,14 +2,15 @@
 
 const sorting = (initialArray, sortKeys) => {
     if (sortKeys == undefined) {
-        return sortKeys; 
+        return undefined; 
     }
     if (initialArray == undefined) {
-        return initialArray;
+        return undefined;
     }
-    for (let value of sortKeys.reverse()) {
+    sortKeys.reverse()
+    for (let value of sortKeys) {
         initialArray.sort((a,b) => {
-            return ((a[value] < b[value]) ? -1 : 0);
+            return ((a[value] < b[value]) ? -1 : ((a[value] > b[value]) ? 1 : 0));
         })
     }
     return initialArray;

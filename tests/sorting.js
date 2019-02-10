@@ -134,7 +134,7 @@ QUnit.module('Тестируем функцию sorting', function () {
 		const initial = null;
 		const actual = sorting(initial,  [ 'prop1' ]);
 
-		const expected = null;
+		const expected = undefined;
 
 		assert.deepEqual(actual, expected);
 	});
@@ -170,12 +170,12 @@ QUnit.module('Тестируем функцию sorting', function () {
 		];
 		const actual = sorting(initial,  null);
 
-		const expected = null;
+		const expected = undefined;
 
 		assert.deepEqual(actual, expected);
 	});
 
-	QUnit.test('sorting сортирует массив по несуществующему ключу', function (assert) {
+	QUnit.test('sorting не сортирует массив по несуществующему ключу', function (assert) {
 		const initial = [
 			{prop1: '30'},
 			{prop1: '1000'},
