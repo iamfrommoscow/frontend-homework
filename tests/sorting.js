@@ -130,15 +130,6 @@ QUnit.module('Тестируем функцию sorting', function () {
 		assert.deepEqual(actual, expected);
 	});
 
-	QUnit.test('Проверка массива объектов на null', function (assert) {
-		const initial = null;
-		const actual = sorting(initial,  [ 'prop1' ]);
-
-		const expected = undefined;
-
-		assert.deepEqual(actual, expected);
-	});
-
 	QUnit.test('Проверка массива ключей на undefined', function (assert) {
 		const initial = [
 			{prop1: 3, id: '1'},
@@ -151,24 +142,6 @@ QUnit.module('Тестируем функцию sorting', function () {
 			{prop1: 2, id: '2'}
 		];
 		const actual = sorting(initial,  undefined);
-
-		const expected = undefined;
-
-		assert.deepEqual(actual, expected);
-	});
-
-	QUnit.test('Проверка массива ключей на null', function (assert) {
-		const initial = [
-			{prop1: 3, id: '1'},
-			{prop1: 3, id: '2'},
-			{prop1: 1, id: '1'},
-			{prop1: 1, id: '2'},
-			{prop1: 4, id: '1'},
-			{prop1: 4, id: '2'},
-			{prop1: 2, id: '1'},
-			{prop1: 2, id: '2'}
-		];
-		const actual = sorting(initial,  null);
 
 		const expected = undefined;
 
@@ -193,6 +166,53 @@ QUnit.module('Тестируем функцию sorting', function () {
 
 		assert.deepEqual(actual, expected);
 	});
+
+	QUnit.test('проверка передачи строки вместо массива ключей', function (assert) {
+		const initial = [
+			{prop1: '30'},
+			{prop1: '1000'},
+			{prop1: '4'},
+			{prop1: '200'}
+		];
+		const actual = sorting(initial, 'prop1');
+
+		const expected = undefined
+
+		assert.deepEqual(actual, expected);
+	});
+
+	QUnit.test('проверка передачи числа вместо массива ключей', function (assert) {
+		const initial = [
+			{prop1: '30'},
+			{prop1: '1000'},
+			{prop1: '4'},
+			{prop1: '200'}
+		];
+		const actual = sorting(initial, 67);
+
+		const expected = undefined
+
+		assert.deepEqual(actual, expected);
+	});
+
+	QUnit.test('проверка передачи строки вместо массива объектов', function (assert) {
+		const initial = 'hello 2 sem'
+		const actual = sorting(initial,  [ 'prop1' ]);
+
+		const expected = undefined
+
+		assert.deepEqual(actual, expected);
+	});
+
+	QUnit.test('проверка передачи числа вместо массива объектов', function (assert) {
+		const initial = 22
+		const actual = sorting(initial,  [ 'prop1' ]);
+
+		const expected = undefined
+
+		assert.deepEqual(actual, expected);
+	});
+
 
 	
 });

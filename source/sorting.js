@@ -1,16 +1,16 @@
 'use strict';
 
 const sorting = (initialArray, sortKeys) => {
-    if (sortKeys == undefined) {
-        return undefined; 
+    if (!Array.isArray(sortKeys) || !Array.isArray(initialArray)) {
+        return; 
     }
-    if (initialArray == undefined) {
-        return undefined;
-    }
-    sortKeys.reverse()
-    for (let value of sortKeys) {
+    for (let value of sortKeys.reverse()) {
         initialArray.sort((a,b) => {
-            return ((a[value] < b[value]) ? -1 : ((a[value] > b[value]) ? 1 : 0));
+            if (a[value] < b[value]) {
+                return -1;
+            } else {
+                return 0;
+            }
         })
     }
     return initialArray;
