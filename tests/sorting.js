@@ -176,7 +176,7 @@ QUnit.module('Тестируем функцию sorting', function () {
 		];
 		const actual = sorting(initial, 'prop1');
 
-		const expected = undefined
+		const expected = undefined;
 
 		assert.deepEqual(actual, expected);
 	});
@@ -190,25 +190,25 @@ QUnit.module('Тестируем функцию sorting', function () {
 		];
 		const actual = sorting(initial, 67);
 
-		const expected = undefined
+		const expected = undefined;
 
 		assert.deepEqual(actual, expected);
 	});
 
 	QUnit.test('проверка передачи строки вместо массива объектов', function (assert) {
-		const initial = 'hello 2 sem'
+		const initial = 'hello 2 sem';
 		const actual = sorting(initial,  [ 'prop1' ]);
 
-		const expected = undefined
+		const expected = undefined;
 
 		assert.deepEqual(actual, expected);
 	});
 
 	QUnit.test('проверка передачи числа вместо массива объектов', function (assert) {
-		const initial = 22
+		const initial = 22;
 		const actual = sorting(initial,  [ 'prop1' ]);
 
-		const expected = undefined
+		const expected = undefined;
 
 		assert.deepEqual(actual, expected);
 	});
