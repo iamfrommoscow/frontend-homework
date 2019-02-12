@@ -8,9 +8,8 @@ const sorting = (initialArray, sortKeys) => {
         initialArray.sort((a,b) => {
             if (a[value] < b[value]) {
                 return -1;
-            } else {
-                return 0;
             }
+            return 0;
         })
     }
     return initialArray;
